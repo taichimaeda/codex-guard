@@ -1,0 +1,20 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "codex-guard",
+  "description": "Uses OpenAI Codex to evaluate bash command safety before execution",
+  "owner": {
+    "name": "taichimaeda"
+  },
+  "plugins": [
+    {
+      "name": "codex-guard",
+      "description": "Uses OpenAI Codex to evaluate bash command safety before execution",
+      "author": {
+        "name": "taichimaeda"
+      },
+      "source": ".",
+      "category": "security",
+      "keywords": ["safety", "security", "codex", "bash", "hooks"]
+    }
+  ]
+}
