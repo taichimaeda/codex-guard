@@ -13,6 +13,6 @@ RESULT=$(jq -rs 'map(select(.type == "item.completed" and .item.type == "agent_m
 if [[ "$RESULT" == SAFE* ]]; then
   echo '{"hookSpecificOutput":{"hookEventName":"PermissionRequest","decision":{"behavior":"allow"}}}'
 else
-  jq -nc --arg msg "Codex: $RESULT" \
-    '{hookSpecificOutput:{hookEventName:"PermissionRequest",decision:{behavior:"deny",message:$msg}}}'
+  echo "Codex flagged this as unsafe: $RESULT" >&2
+  exit 0
 fi
