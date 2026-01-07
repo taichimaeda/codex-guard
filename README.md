@@ -9,7 +9,7 @@ When Claude Code requests permission to run a bash command, this plugin:
 1. Intercepts the `PermissionRequest` hook
 2. Sends the command to Codex for safety evaluation
 3. Auto-allows if Codex says "SAFE"
-4. Auto-denies with reason if Codex says "UNSAFE"
+4. Delegates to user if Codex says "UNSAFE" (prints a warning to stderr and lets you decide)
 
 ## Requirements
 
@@ -44,7 +44,8 @@ Test the hook script directly:
 
 ```bash
 echo '{"tool_input": {"command": "rm -rf /"}}' | ./scripts/codex-guard.sh
-# → {"hookSpecificOutput":{"hookEventName":"PermissionRequest","decision":{"behavior":"deny","message":"Codex: ..."}}}
+# stderr → Codex flagged this as unsafe: UNSAFE: ...
+# (no stdout, delegates decision to user)
 
 echo '{"tool_input": {"command": "git status"}}' | ./scripts/codex-guard.sh
 # → {"hookSpecificOutput":{"hookEventName":"PermissionRequest","decision":{"behavior":"allow"}}}
