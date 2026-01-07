@@ -12,9 +12,15 @@
       "author": {
         "name": "taichimaeda"
       },
-      "source": ".",
+      "source": "./",
       "category": "security",
-      "keywords": ["safety", "security", "codex", "bash", "hooks"]
+      "keywords": [
+        "safety",
+        "security",
+        "codex",
+        "bash",
+        "hooks"
+      ]
     }
   ]
 }
