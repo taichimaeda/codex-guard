@@ -4,6 +4,5 @@
   "description": "Uses OpenAI Codex to evaluate bash command safety before execution",
   "author": {
     "name": "taichimaeda"
-  },
-  "hooks": "./hooks/hooks.json"
+  }
 }
